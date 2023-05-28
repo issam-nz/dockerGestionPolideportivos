@@ -1,3 +1,70 @@
+db.entradas.find()
+db.polideportivos.find()
+db.socios.find()
+db.entradas.find()
+show collections
+db.registroEntradas.drop()
+db.registroEntradas.clear()
+db.entradas.find()
+db.registroEntradas.find()
+show collections
+...   }
+...     }
+...       vecesAcude: "$count"
+...       fechaNacimiento: "$socio.fechaNacimiento",
+...       telefono: "$socio.telefono",
+...       email: "$socio.email",
+...       apellido: "$socio.apellido",
+...       nombre: "$socio.nombre",
+...       _id: 0,
+...     $project: {
+...   {
+...   },
+...     $unwind: "$socio"
+...   {
+...   },
+...     }
+...       as: "socio"
+...       foreignField: "_id",
+...       localField: "_id",
+...       from: "socios",
+...     $lookup: {
+...   {
+...   },
+...     $limit: 1
+...   {
+...   },
+...     $sort: { count: -1 }
+...   {
+...   },
+...     }
+...       count: { $sum: 1 }
+...       _id: "$idSocio",
+db.entradas.aggregate([ ...   { ...     $group: {
+db.entradas.aggregate([ { $group: { _id: "$idSocio", count: { $sum: 1 } } }, { $sort: { count: -1 } }, { $limit: 1 }, { $lookup: { from: "socios", localField: "_id", foreignField: "_id", as: "socio" } }, { $unwind: "$socio" }, { $project: { _id: 0, nombre: "$socio.nombre", apellido: "$socio.apellido", email: "$socio.email", telefono: "$socio.telefono", fechaNacimiento: "$socio.fechaNacimiento", vecesAcude: "$count" } }])
+show collections
+use db_polideportivos
+use admin
+db.polideportivos.find()
+db.registros.find()
+db.createCollection("registros")
+db.createCollection("polideportivos")
+db.createCollection("socios")
+use dbmongo
+show dbs
+use admin
+exit
+db.entradas.find()
+db.polideportivos.find()
+db.socios.find()
+db.socios.find
+db.createCollection('entradas')
+show collections
+db.registroEntradas.drop()
+show collections
+use db_polideportivos
+show databases
+use admin
 db.polideportivos.find()
 db.registroEntradas.find()
 show collections
